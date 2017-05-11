@@ -1,0 +1,5 @@
+spring:
+  datasource: #测试环境
+    url: jdbc:mysql://192.168.0.166:3306/test?useUnicode=true&characterEncoding=utf8
+    username: xiaomei
+    password: 1234
