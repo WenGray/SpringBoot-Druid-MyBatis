@@ -2,14 +2,18 @@ package com.spring.dao;
 
 import com.spring.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * User表相关语句
- * Created by gray on 2017/5/7.
+ *
+ * @author Gray
+ * @date 2017/5/7
  */
 @Mapper
+@Component
 public interface UserDao {
 
     /**

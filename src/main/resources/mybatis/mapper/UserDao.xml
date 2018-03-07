@@ -4,7 +4,7 @@
 <!-- User-->
 <mapper namespace="com.spring.dao.UserDao">
 
-   <select id="findAll" resultType="User">
+   <select id="findAll" resultType="com.spring.entity.User">
       select
         user_id, name, age
       from

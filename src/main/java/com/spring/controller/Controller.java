@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 创建Controller
- * Created by gray on 2017/5/7.
+ *
+ * @author Gray
+ * @date 2017/5/7
  */
 @RestController
-@RequestMapping(value = "/demo")
+@RequestMapping(value = "/api")
 public class Controller {
 
     private final UserService userService;
