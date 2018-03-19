@@ -2,15 +2,16 @@ package com.spring.dto;
 
 /**
  * 使用枚举表述常量数据字典
- * Created by leigang on 16/6/22.
+ *
+ * @author Gray
+ * @date 16/6/22
  */
 public enum State {
-    SUCCESS(200, "请求成功"),
-    REQUEST_WRONG(400, "参数错误"),
-    RE_SEND(403, "重复发送"),
-    REQUEST_ABNORMAL(406, "请求异常"),
-    ERROR(500, "Server Error")
-    ;
+    SUCCESS(0, "请求成功"),
+    REQUEST_WRONG(1, "参数错误"),
+    RE_SEND(2, "重复发送"),
+    REQUEST_ABNORMAL(3, "请求异常"),
+    ERROR(44, "Server Error");
 
     private int state;
 

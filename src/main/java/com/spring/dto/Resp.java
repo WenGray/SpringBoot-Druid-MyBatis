@@ -8,33 +8,51 @@ import java.util.Map;
 /**
  * 封装接口返回的所有数据
  * 接口返回的参数类似
- * {code: 200, msg: "查询成功", data: {name: "e_joy"}}
- * Created by leigang on 2017/3/13.
+ * {errorCode: 0, msg: "查询成功", data: {name: "e_joy"}}
+ *
+ * @author Gray
+ * @date 2017/3/13
  */
 public class Resp {
 
-    public static Resp PARAM_WRONG = new Resp(State.REQUEST_WRONG); //快捷获取参数错误，在没有data值的时候才能使用
+    /**
+     * 快捷获取参数错误，在没有data值的时候才能使用
+     */
+    public static Resp PARAM_WRONG = new Resp(State.REQUEST_WRONG);
 
-    //返回状态码
-    private int code;
-    //返回信息
+    /**
+     * 返回状态码
+     */
+    private int errorCode;
+    /**
+     * 返回信息
+     */
     private String msg;
-    //数据对象
+    /**
+     * 数据对象
+     */
     private Object data;
 
-    //默认构造函数
+    /**
+     * 默认构造函数
+     */
     public Resp() {
     }
 
-    //使用枚举初始化
+    /**
+     * 使用枚举初始化
+     */
+
     private Resp(State stateEnum) {
-        this.code = stateEnum.getState();
+        this.errorCode = stateEnum.getState();
         this.msg = stateEnum.getStateInfo();
     }
 
-    //包含所有参数的构造函数
-    public Resp(int code, String msg, Map<String, Object> data) {
-        this.code = code;
+    /**
+     * 包含所有参数的构造函数
+     */
+    public Resp(int errorCode, String msg, Map<String, Object> data) {
+        this.errorCode = errorCode;
         this.msg = msg;
         this.data = data;
     }
@@ -68,9 +86,10 @@ public class Resp {
         return new Resp(stateEnum);
     }
 
-    //快捷获取500错误
+    /**
+     * 快捷获取常规错误
+     */
     public static Resp error() {
-
         return new Resp(State.ERROR);
     }
 
@@ -91,6 +110,7 @@ public class Resp {
      * @param value 返回数据的value
      * @return 返回Resp对象，可以链式添加
      */
+    @SuppressWarnings("unchecked")
     public Resp put(String key, Object value) {
         if (StringUtil.isEmpty(key)) {
             //传入的key 不存在的话直接返回
@@ -111,12 +131,13 @@ public class Resp {
     }
 
     /* Getter and setter methods */
-    public int getCode() {
-        return code;
+
+    public int getErrorCode() {
+        return errorCode;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
     }
 
     public String getMsg() {
@@ -135,7 +156,7 @@ public class Resp {
     @Override
     public String toString() {
         return "Resp{" +
-                "code=" + code +
+                "errorCode=" + errorCode +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
                 '}';
